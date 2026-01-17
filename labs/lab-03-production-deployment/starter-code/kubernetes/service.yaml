@@ -1,0 +1,18 @@
+# Kubernetes Service for RAG Agent
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rag-agent
+  labels:
+    app: rag-agent
+spec:
+  type: ClusterIP
+  selector:
+    app: rag-agent
+  ports:
+  - port: 8000
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  sessionAffinity: None

@@ -1,0 +1,11 @@
+Research Topic: RAG System Best Practices
+
+This topic should be decomposed into sub-questions about:
+- RAG architecture components
+- Document processing strategies
+- Embedding model selection
+- Vector database configuration
+- Retrieval optimization
+- Answer generation techniques
+- Evaluation methodologies
+- Production deployment considerations

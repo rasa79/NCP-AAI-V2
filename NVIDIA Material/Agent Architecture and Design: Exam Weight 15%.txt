@@ -1,0 +1,34 @@
+Agent Architecture and Design: Exam Weight 15%
+
+https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/introduction.html
+https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/ai-factory-overview.html
+https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/agentic-ai-in-the-factory.html
+https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/ecosystem-architecture.html
+https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/deployment-strategies.html
+https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/appendix.html
+
+https://resources.nvidia.com/en-us-certified-systems/collection-9563de54
+https://github.com/NVIDIA/NeMo-Agent-Toolkit
+https://www.nvidia.com/en-us/software/run-ai/#referrer=site&domain=run-ai
+
+https://medium.com/@zbabar/building-autonomous-ai-with-nvidia-agentic-nemo-e2992ae58cea
+https://www.nvidia.com/en-us/ai-data-science/products/nemo/
+https://github.com/NVIDIA-NeMo/NeMo
+https://github.com/NVIDIA/Megatron-LM
+https://developer.nvidia.com/nemo-guardrails?sortBy=developer_learning_library%2Fsort%2Ffeatured_in.nemo_guardrails%3Adesc%2Ctitle%3Aasc
+https://docs.nvidia.com/nemo/guardrails/latest/index.html
+https://developer.nvidia.com/dynamo-triton
+https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html
+https://github.com/NVIDIA/TensorRT-LLM
+https://www.deepspeed.ai/getting-started/
+https://www.deepspeed.ai/tutorials/megatron/
+https://github.com/facebookresearch/faiss
+https://www.nvidia.com/en-us/data-center/dgx-cloud/
+
+https://nvidianews.nvidia.com/news/nvidia-and-global-partners-launch-nim-agent-blueprints-for-enterprises-to-make-their-own-ai
+https://developer.nvidia.com/blog/three-building-blocks-for-creating-ai-virtual-assistants-for-customer-service-with-an-nvidia-nim-agent-blueprint/
+https://github.com/NVIDIA-AI-Blueprints/ai-virtual-assistant
+https://build.nvidia.com/nvidia/ai-virtual-assistant-for-customer-service
+
+
+https://arxiv.org/pdf/2502.05439 - Haven't completely read

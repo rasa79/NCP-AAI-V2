@@ -1,0 +1,44 @@
+# Lab 3: Production Deployment - Dependencies
+
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# RAG Components (from Lab 1)
+langchain==0.1.0
+langchain-community==0.0.10
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+
+# NVIDIA Integration
+nvidia-nim-client==0.1.0  # Placeholder - use actual NIM client
+openai==1.6.1  # For OpenAI-compatible endpoints
+
+# Monitoring and Observability
+prometheus-client==0.19.0
+python-json-logger==2.0.7
+opentelemetry-api==1.21.0
+opentelemetry-sdk==1.21.0
+opentelemetry-instrumentation-fastapi==0.42b0
+
+# HTTP and Networking
+httpx==0.25.2
+aiohttp==3.9.1
+tenacity==8.2.3  # For retry logic
+
+# Load Testing
+locust==2.20.0
+
+# Kubernetes Client (for testing)
+kubernetes==28.1.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1

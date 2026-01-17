@@ -1,0 +1,41 @@
+# Dockerfile for Vector Database (FAISS)
+
+# TODO: Create vector database container
+# Hints:
+# - Use Python 3.10-slim as base
+# - Install FAISS dependencies
+# - Create data directory
+# - Set up persistence
+# - Expose appropriate port
+# - Add health check
+
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /vectordb
+
+# Install dependencies
+RUN pip install --no-cache-dir \
+    faiss-cpu==1.7.4 \
+    fastapi==0.104.1 \
+    uvicorn==0.24.0
+
+# Create data directory
+RUN mkdir -p /data/vector_db && \
+    chmod 777 /data/vector_db
+
+# Copy vector DB service (if you create one)
+# COPY vectordb_service.py .
+
+# Expose port
+EXPOSE 8001
+
+# Volume for persistence
+VOLUME ["/data/vector_db"]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+    CMD python -c "import os; assert os.path.exists('/data/vector_db')"
+
+# Run service (placeholder - implement actual service)
+CMD ["python", "-c", "print('Vector DB container running'); import time; time.sleep(3600)"]

@@ -1,0 +1,107 @@
+# Kubernetes Deployment for RAG Agent
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-agent
+  labels:
+    app: rag-agent
+    version: v1
+spec:
+  # TODO: Configure deployment
+  # Hints:
+  # - Set replicas to 3 for HA
+  # - Add selector labels
+  # - Configure pod template
+  # - Set resource limits
+  # - Add health probes
+  
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rag-agent
+  template:
+    metadata:
+      labels:
+        app: rag-agent
+        version: v1
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+      - name: rag-agent
+        image: rag-agent:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+          name: http
+          protocol: TCP
+        
+        # Environment variables from ConfigMap and Secret
+        envFrom:
+        - configMapRef:
+            name: rag-agent-config
+        - secretRef:
+            name: rag-agent-secrets
+        
+        # Resource limits
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        
+        # Liveness probe
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        
+        # Readiness probe
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        
+        # Volume mounts
+        volumeMounts:
+        - name: vector-db-storage
+          mountPath: /data/vector_db
+      
+      # Volumes
+      volumes:
+      - name: vector-db-storage
+        persistentVolumeClaim:
+          claimName: vector-db-pvc
+      
+      # Security context
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+
+---
+# Persistent Volume Claim for Vector Database
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vector-db-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: standard

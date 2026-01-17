@@ -1,0 +1,32 @@
+# Lab 1: Basic RAG Agent - Dependencies
+
+# Core RAG Framework
+langchain==0.1.0
+langchain-community==0.0.10
+
+# Embedding Models
+sentence-transformers==2.2.2
+
+# Vector Database
+faiss-cpu==1.7.4
+
+# LLM Integration (OpenAI as example - can be replaced)
+openai==1.6.1
+
+# Document Processing
+pypdf==3.17.4
+python-docx==1.1.0
+
+# Utilities
+python-dotenv==1.0.0
+pydantic==2.5.3
+
+# Testing and Validation
+pytest==7.4.3
+pytest-timeout==2.2.0
+
+# Logging and Monitoring
+loguru==0.7.2
+
+# Type Checking
+mypy==1.7.1

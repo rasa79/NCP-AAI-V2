@@ -1,0 +1,121 @@
+# Docker Compose for local development and testing
+
+version: '3.8'
+
+services:
+  # RAG Agent Application
+  rag-agent:
+    build:
+      context: ../..
+      dockerfile: starter-code/docker/Dockerfile.app
+    container_name: rag-agent
+    ports:
+      - "8000:8000"
+    environment:
+      # TODO: Add environment variables
+      # Hints:
+      # - NIM endpoint
+      # - Vector DB path
+      # - Log level
+      # - Debug mode
+      - NIM_ENDPOINT=http://nim:8000
+      - VECTOR_DB_PATH=/data/vector_db
+      - LOG_LEVEL=INFO
+      - DEBUG=false
+    volumes:
+      - vector-data:/data/vector_db
+    depends_on:
+      - vectordb
+      - nim
+    networks:
+      - rag-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Vector Database
+  vectordb:
+    build:
+      context: ../..
+      dockerfile: starter-code/docker/Dockerfile.vectordb
+    container_name: vectordb
+    ports:
+      - "8001:8001"
+    volumes:
+      - vector-data:/data/vector_db
+    networks:
+      - rag-network
+    restart: unless-stopped
+
+  # NVIDIA NIM (Mock - replace with actual NIM container)
+  nim:
+    image: python:3.10-slim
+    container_name: nim-mock
+    ports:
+      - "8002:8000"
+    command: >
+      sh -c "pip install fastapi uvicorn &&
+             python -c '
+      from fastapi import FastAPI;
+      import uvicorn;
+      app = FastAPI();
+      @app.post(\"/v1/completions\")
+      async def complete(request: dict):
+          return {\"choices\": [{\"text\": \"Mock NIM response\"}]};
+      uvicorn.run(app, host=\"0.0.0.0\", port=8000)
+      '"
+    networks:
+      - rag-network
+    restart: unless-stopped
+
+  # Prometheus (Monitoring)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ../monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - rag-network
+    restart: unless-stopped
+
+  # Grafana (Dashboards)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ../monitoring/grafana-dashboard.json:/etc/grafana/provisioning/dashboards/rag-dashboard.json
+    networks:
+      - rag-network
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+# Networks
+networks:
+  rag-network:
+    driver: bridge
+
+# Volumes
+volumes:
+  vector-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local

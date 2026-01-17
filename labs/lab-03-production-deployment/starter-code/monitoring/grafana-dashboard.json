@@ -1,0 +1,75 @@
+{
+  "dashboard": {
+    "title": "RAG Agent Monitoring",
+    "tags": ["rag", "agent", "production"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(rag_requests_total[5m])",
+            "legendFormat": "{{endpoint}} - {{status}}"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Response Time (p95)",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(rag_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "{{endpoint}}"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Error Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(rag_requests_total{status=\"error\"}[5m])",
+            "legendFormat": "{{endpoint}}"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Active Connections",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rag_active_connections",
+            "legendFormat": "Active Connections"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "NIM Latency",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(nim_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "{{operation}}"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Vector DB Query Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(vector_db_query_duration_seconds_bucket[5m]))",
+            "legendFormat": "{{operation}}"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+Adding New Knowledge to LLMs
+
+
+About this Course
+
+Large Language Models (LLMs) are powerful, but their knowledge is often general-purpose and may lack the specific, up-to-date, or specialized information required for enterprise applications. The "Adding Knowledge to LLMs" workshop provides a comprehensive, hands-on guide to the essential techniques for augmenting and customizing LLMs.
+
+This workshop takes you on a complete journey from raw data to a fine-tuned, optimized model. You will begin by learning how to curate high-quality datasets and generate synthetic data with NVIDIA NeMo Curator. Next, you will dive deep into the crucial process of model evaluation, using benchmarks, LLM-as-a-judge, and the NeMo Evaluator to rigorously assess model performance. With a solid foundation in evaluation, you will then explore a suite of powerful customization techniques, including Continued Pretraining to inject new knowledge, Supervised Fine-Tuning to teach new skills, and Direct Preference Optimization (DPO) to align model behavior with human preferences.
+
+Finally, you will learn to make your customized models efficient for real-world deployment by exploring essential optimization techniques like quantization, pruning, and knowledge distillation using TensorRT-LLM and the NeMo framework. The workshop culminates in a hands-on assessment where you will apply your new skills to align an LLM to a specific conversational style, solidifying your ability to tailor models for any application.
+Learning Objectives
+
+By participating in this workshop, participants will be equipped to:
+
+    Curate high-quality datasets and generate synthetic data using NVIDIA NeMo Curator.
+    Rigorously evaluate LLM performance with benchmarks (MMLU), LLM-as-a-judge, and the NeMo Evaluator.
+    Inject new domain-specific knowledge into LLMs using Continued Pretraining (CPT).
+    Teach LLMs new skills and align them to specific tasks with Supervised Fine-Tuning (SFT).
+    Align model behavior to human preferences for style, tone, and safety using Direct Preference Optimization (DPO).
+    Compress and optimize LLMs for efficient deployment using Quantization, Pruning, and Knowledge Distillation with TensorRT-LLM and NeMo.
+    Apply end-to-end model customization workflows to solve real-world problems.
+
+Topics Covered
+
+In service of teaching and demonstrating how to add knowledge to and customize LLMs for enterprise use, this workshop will cover the following topics and technologies:
+
+    Data Curation and Synthetic Data Generation
+    Advanced LLM Evaluation Techniques (including LLM-as-a-Judge and ELO)
+    Continued Pretraining (CPT) for Knowledge Injection
+    Supervised Fine-Tuning (SFT) for Skill Acquisition
+    Direct Preference Optimization (DPO) for Behavioral Alignment
+    Model Optimization: Quantization, Pruning, and Knowledge Distillation
+    NVIDIA NeMo Framework, NeMo Curator, NeMo Evaluator, and NeMo-RL
+    TensorRT-LLM for High-Performance Inference
+
+Course Outline
+
+The table below is a suggested timeline for the course. Please coordinate with the instructor for the best pacing and emphasis.
+1. Data Curation and Synthetic Data Generation 	
+
+    Learn to prepare large-scale, high-quality datasets using NVIDIA NeMo Curator.
+    Perform essential data curation tasks: text cleaning, filtering, and PII removal.
+    Generate high-quality synthetic Question-Answer pairs to create robust datasets for Supervised Fine-Tuning (SFT).
+    Understand the importance of data quality in the LLM development lifecycle.
+
+2. Evaluating Large Language Models 	
+
+    Explore multiple LLM evaluation techniques, from simple "eyeballing" to systematic, quantitative methods.
+    Evaluate models against industry-standard benchmarks like MMLU.
+    Implement LLM-as-a-judge for nuanced, automated evaluation.
+    Use the NeMo Evaluator microservice to compare zero-shot vs. few-shot (in-context learning) performance.
+    Track and visualize evaluation experiments using MLflow.
+
+3. Customizing LLMs 	
+
+    Dive into three key customization techniques: CPT, SFT, and DPO.
+    Use Continued Pretraining (CPT) to teach a model new knowledge about a specific domain.
+    Apply Supervised Fine-Tuning (SFT) to teach a model new skills, such as solving math problems in a different language.
+    Utilize Direct Preference Optimization (DPO) to align a model's conversational style to human preferences (e.g., formal vs. informal, specific dialects).
+    Gain hands-on experience with the NeMo framework for all customization tasks.
+
+4. Optimizing LLMs for Deployment 	
+
+    Learn to compress and accelerate LLMs for efficient inference.
+    Apply Post-Training Quantization (PTQ) to reduce model size and memory usage using TensorRT-LLM, focusing on the FP8 format.
+    Use Depth Pruning to reduce model size by removing entire layers.
+    Employ Knowledge Distillation to recover performance lost during pruning by training a smaller "student" model to mimic a larger "teacher" model.
+    Evaluate the performance vs. accuracy trade-offs of each optimization technique.
+
+5. Interactive Assessment 	
+
+    Apply your knowledge in a hands-on coding assessment.
+    Use Direct Preference Optimization (DPO) to align a Llama 3.1 8B model to a unique conversational style (Shakespearean English).
+    Demonstrate your ability to prepare a preference dataset, run an alignment job with NeMo-RL, and evaluate the final model.
+    Earn a certificate of competency by successfully completing the assessment.

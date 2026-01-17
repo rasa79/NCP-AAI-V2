@@ -1,0 +1,20 @@
+Evaluating RAG and Semantic Search Systems
+
+
+About this Course
+As large language models (LLMs) and retrieval-augmented generation (RAG) systems become integral to enterprise AI applications, the need for rigorous, domain-aware evaluation grows rapidly. This course provides a comprehensive, hands-on introduction to evaluating RAG and semantic search systems, with a strong focus on real-world enterprise requirements such as regulatory compliance, data complexity, and evolving information needs. You will explore the evolution from classic keyword-based search and BM25 ranking to modern vector stores and semantic retrieval, gaining practical experience with the latest tools and frameworks.
+
+The course covers both foundational concepts and advanced evaluation strategies, including domain-specific metrics, temporal data handling, and independent assessment of retrieval and generation components. You will learn to generate and curate robust test sets, apply LLM-as-a-Judge techniques for scalable evaluation, and customize synthetic data generation pipelines to reflect authentic user queries and business scenarios. By the end of the course, you will be equipped to design, implement, and continuously improve evaluation workflows that ensure your RAG and search systems deliver trustworthy, relevant, and up-to-date results.
+Learning Objectives
+
+By participating in this course, you will:
+
+    Understand the importance and unique challenges of deploying RAG and semantic search solutions in enterprise settings, including the integration of legacy and modern retrieval systems.
+    Gain practical experience with evaluation frameworks such as Ragas, and learn to apply techniques like LLM-as-a-Judge for both metric-based and qualitative assessment of system performance.
+    Develop skills to generate, customize, and validate synthetic test sets that reflect realistic user queries and domain-specific requirements, supporting robust, continuous evaluation and test-driven development.
+    Learn to independently evaluate and debug the retrieval and generation stages of RAG pipelines, using both standard and custom metrics to pinpoint and address performance bottlenecks.
+    Explore methods for handling temporal data, domain-specific language, and evolving regulatory standards, ensuring your evaluation approach remains relevant as enterprise needs change.
+    Apply prompt engineering and data curation techniques to steer synthetic data generation, improving the quality and relevance of your test data for both model evaluation and training.
+
+
+    

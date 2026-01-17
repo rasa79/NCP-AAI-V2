@@ -1,0 +1,49 @@
+Introduction to Deploying RAG Pipelines for Production at Scale
+
+
+About this Course
+Retrieval augmented generation (RAG) pipelines are already changing every aspect of modern enterprise operation. There are countless online tutorials demonstrating proof-of-concept-level naïve RAG applications incapable of dealing with large volumes of traffic and large document volumes. This training lab will bridge this gap and discuss an opinionated best practice for production-level deployment. From infrastructure sizing through breaking down end-to-end Helm-based deployment of NVIDIA NIMs, to customizing individual pipeline components, we'll provide a high-level overview of steps your organization will have to take to transform early proofs of concept into enterprise-grade deployments.
+Learning Objectives
+
+By the time you complete this course you will be able to:
+
+    Launch RAG pipeline applications onto a Kubernetes cluster using Helm and the NVIDIA NIM Operator
+    Leverage NVIDIA NIMs for scalable, containerized LLMs and embedding models
+    Connect, update, add, and autoscale application components
+    Monitor application performance with Prometheus and Grafana
+
+Topics Covered
+
+The following technologies are covered in this course:
+
+    NVIDIA NIMs
+    Kubernetes
+    Helm
+    Grafana
+    Prometheus
+
+Course Outline
+
+This course will proceed as follows:
+
+    Course Overview: Learn about the key application components used in the course and the course structure
+    Overview of the Course Setup: Get familiar with the course's interactive environment, Kubernetes setup, and understand the necessary Kubernetes concepts and commands for the course
+    Kubernetes-based Deployment of the RAG Application: How do deploy a RAG pipeline using Kubernetes and Helm, and how to use individual NIM services within the pipeline
+    Monitoring: How to monitor the application with DCGM, and how to configure and view Grafana and Prometheus
+    Autoscaling: Autoscale the application using HPA based on custom metrics, and load test the application
+
+Course Details
+Duration: 04:00
+Price: $90
+Level: Technical - Intermediate
+Subject: Generative AI/LLM
+Language: English
+Course Prerequisites:
+
+    Familiarity working with LLM based applications
+    Familiarity with RAG pipelines
+    Familiarity working with Kubernetes
+    Familiarity working with Helm
+
+Prefer learning from an instructor?
+Request a private workshop or view our public workshop schedule.

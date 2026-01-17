@@ -1,0 +1,364 @@
+Prompt Engineering: Techniques and Best Practices
+
+Introduction
+
+Prompt engineering is the practice of designing inputs to large language models (LLMs) to elicit desired outputs. As LLMs become more capable, effective prompting has emerged as a critical skill for building AI applications. This paper surveys prompt engineering techniques, patterns, and best practices.
+
+Fundamental Principles
+
+1. Clarity and Specificity
+
+Clear, specific prompts produce better results than vague ones:
+
+Poor: "Write about AI"
+Better: "Write a 200-word explanation of transformer architecture for software engineers"
+
+Specificity includes:
+- Desired format (essay, list, code, etc.)
+- Length constraints
+- Target audience
+- Tone and style
+- Required elements
+
+2. Context and Examples
+
+Providing context and examples improves output quality:
+
+Zero-shot: No examples, just instructions
+Few-shot: Include 1-5 examples of desired input-output pairs
+Many-shot: Include many examples (limited by context window)
+
+Examples should be:
+- Representative of the task
+- Diverse in coverage
+- High quality
+- Properly formatted
+
+3. Structured Output
+
+Request structured formats for easier parsing:
+- JSON for data extraction
+- Markdown for formatted text
+- XML for hierarchical data
+- CSV for tabular data
+
+Core Techniques
+
+1. Instruction Prompting
+
+Direct, clear instructions:
+
+"Summarize the following article in 3 bullet points:
+[article text]"
+
+Best practices:
+- Use imperative verbs (summarize, extract, classify)
+- Specify constraints explicitly
+- Separate instructions from content
+- Use delimiters (###, ---, etc.)
+
+2. Role Prompting
+
+Assign a role or persona to the model:
+
+"You are an expert Python developer. Review this code and suggest improvements:
+[code]"
+
+Effective roles:
+- Domain experts (doctor, lawyer, engineer)
+- Specific personas (helpful assistant, critical reviewer)
+- Fictional characters (for creative tasks)
+
+3. Chain-of-Thought (CoT)
+
+Encourage step-by-step reasoning:
+
+"Let's solve this problem step by step:
+1. First, identify the key information
+2. Then, determine what we need to find
+3. Finally, calculate the answer
+
+Problem: [problem text]"
+
+Variants:
+- Zero-shot CoT: "Let's think step by step"
+- Few-shot CoT: Provide examples with reasoning
+- Self-consistency: Generate multiple reasoning paths
+
+4. ReAct (Reasoning + Acting)
+
+Interleave reasoning and actions:
+
+"Thought: I need to find information about X
+Action: Search for X
+Observation: [search results]
+Thought: Based on the results, I should...
+Action: [next action]"
+
+Useful for:
+- Tool use and API calls
+- Multi-step problem solving
+- Interactive agents
+
+5. Self-Critique and Refinement
+
+Ask the model to critique and improve its output:
+
+"Generate an answer, then critique it for accuracy and completeness, then provide an improved version."
+
+Techniques:
+- Constitutional AI: Critique against principles
+- Self-refinement: Iterative improvement
+- Debate: Multiple perspectives
+
+6. Prompt Chaining
+
+Break complex tasks into steps:
+
+Step 1: Extract key information
+Step 2: Analyze extracted information
+Step 3: Generate recommendations
+Step 4: Format final output
+
+Benefits:
+- Better handling of complex tasks
+- Easier debugging
+- More reliable outputs
+- Ability to use different models for different steps
+
+Advanced Patterns
+
+1. Tree of Thoughts
+
+Explore multiple reasoning paths:
+
+"Generate 3 different approaches to solve this problem.
+For each approach:
+1. Describe the strategy
+2. List pros and cons
+3. Estimate likelihood of success
+
+Then select the best approach and execute it."
+
+2. Retrieval-Augmented Prompting
+
+Incorporate external information:
+
+"Based on the following context:
+[retrieved documents]
+
+Answer the question:
+[question]
+
+Only use information from the provided context. Cite sources."
+
+3. Meta-Prompting
+
+Use the LLM to generate or improve prompts:
+
+"Generate an effective prompt for [task description]"
+"Improve this prompt: [original prompt]"
+
+4. Constrained Generation
+
+Enforce specific constraints:
+
+"Generate a haiku (5-7-5 syllables) about AI"
+"Write a function that takes exactly 3 parameters"
+"Respond in valid JSON format"
+
+5. Negative Prompting
+
+Specify what to avoid:
+
+"Explain quantum computing without using mathematical equations or jargon"
+
+Domain-Specific Patterns
+
+1. Code Generation
+
+Effective patterns:
+- Specify language and version
+- Describe input/output clearly
+- Request comments and docstrings
+- Include error handling requirements
+- Specify coding style
+
+Example:
+"Write a Python 3.10 function that:
+- Takes a list of integers as input
+- Returns the median value
+- Handles empty lists gracefully
+- Includes type hints and docstring
+- Follows PEP 8 style"
+
+2. Data Extraction
+
+Patterns:
+- Specify exact fields to extract
+- Define output format (JSON, CSV)
+- Handle missing data
+- Provide examples
+
+Example:
+"Extract the following information from the text and return as JSON:
+- person_name (string)
+- email (string or null)
+- phone (string or null)
+- company (string or null)
+
+Text: [input text]"
+
+3. Classification
+
+Patterns:
+- List all possible categories
+- Provide category definitions
+- Request confidence scores
+- Handle ambiguous cases
+
+Example:
+"Classify the sentiment of this review as positive, negative, or neutral.
+Provide a confidence score (0-1).
+If confidence < 0.7, classify as 'uncertain'.
+
+Review: [text]"
+
+4. Summarization
+
+Patterns:
+- Specify length (words, sentences, bullets)
+- Define focus areas
+- Request specific format
+- Indicate target audience
+
+Example:
+"Summarize this research paper in 5 bullet points.
+Focus on: methodology, key findings, and implications.
+Target audience: non-technical business executives.
+
+Paper: [text]"
+
+Best Practices
+
+1. Iterative Refinement
+
+- Start simple, add complexity as needed
+- Test with diverse inputs
+- Analyze failure cases
+- Refine based on results
+
+2. Temperature and Sampling
+
+- Temperature 0: Deterministic, factual tasks
+- Temperature 0.3-0.7: Balanced creativity and consistency
+- Temperature 0.8-1.0: Creative, diverse outputs
+- Top-p (nucleus sampling): Alternative to temperature
+
+3. Token Management
+
+- Be concise but clear
+- Use efficient formatting
+- Prioritize important information
+- Consider context window limits
+
+4. Error Handling
+
+- Request explicit uncertainty indicators
+- Ask for alternative answers when unsure
+- Include fallback instructions
+- Validate outputs programmatically
+
+5. Prompt Templates
+
+Create reusable templates:
+
+```python
+template = """
+You are a {role}.
+
+Task: {task}
+
+Context: {context}
+
+Instructions:
+{instructions}
+
+Output format: {format}
+"""
+```
+
+6. Version Control
+
+- Track prompt versions
+- Document changes and rationale
+- A/B test prompt variations
+- Maintain prompt libraries
+
+Common Pitfalls
+
+1. Ambiguity
+
+Vague prompts lead to inconsistent outputs. Be specific about requirements.
+
+2. Overcomplication
+
+Overly complex prompts can confuse the model. Start simple.
+
+3. Assuming Knowledge
+
+Don't assume the model knows context you haven't provided.
+
+4. Ignoring Biases
+
+Be aware of potential biases in model outputs and prompt accordingly.
+
+5. Not Testing Edge Cases
+
+Test with unusual, ambiguous, or adversarial inputs.
+
+Evaluation and Optimization
+
+1. Metrics
+
+- Task-specific accuracy
+- Output consistency
+- Latency and cost
+- User satisfaction
+
+2. A/B Testing
+
+Compare prompt variants:
+- Systematic variation
+- Statistical significance
+- Multiple metrics
+
+3. Prompt Optimization Tools
+
+- DSPy: Programmatic prompt optimization
+- PromptPerfect: Automated prompt improvement
+- LangSmith: Prompt testing and evaluation
+
+Future Directions
+
+1. Automated Prompt Engineering
+
+- Gradient-based optimization
+- Reinforcement learning
+- Evolutionary algorithms
+
+2. Multimodal Prompting
+
+- Image + text prompts
+- Audio + text prompts
+- Video understanding
+
+3. Adaptive Prompting
+
+- Dynamic prompt adjustment
+- User-specific customization
+- Context-aware prompting
+
+Conclusion
+
+Effective prompt engineering combines art and science. Success requires understanding model capabilities, iterative refinement, and systematic evaluation. As models evolve, prompting techniques must adapt. The principles of clarity, specificity, and structured thinking remain fundamental. Mastering prompt engineering is essential for building reliable, high-quality LLM applications.

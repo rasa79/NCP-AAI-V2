@@ -1,0 +1,75 @@
+https://docs.nvidia.com/ai-enterprise/planning-resource/ai-factory-white-paper/latest/agentic-ai-in-the-factory.html | Agentic AI in the Factory — NVIDIA Enterprise AI Factory Design Guide White Paper
+https://medium.com/@zbabar/building-autonomous-ai-with-nvidia-agentic-nemo-e2992ae58cea | Building Autonomous AI with NVIDIA Agentic NeMo | by Zia Babar | Medium
+https://developer.nvidia.com/blog/three-building-blocks-for-creating-ai-virtual-assistants-for-customer-service-with-an-nvidia-nim-agent-blueprint/ | Three Building Blocks for Creating AI Virtual Assistants for Customer Service with an NVIDIA AI Blueprint | NVIDIA Technical Blog
+https://arxiv.org/abs/2502.05439 | [2502.05439] Agentic AI Systems Applied to tasks in Financial Services: Modeling and model risk management crews
+https://medium.com/@mariaprokofieva/catch-me-if-you-can-a-multi-agent-framework-for-financial-fraud-detection-03faa7caba7c | Catch Me If You Can: A Multi-Agent Framework for Financial Fraud Detection | by Maria Prokofieva | Medium
+https://www.nvidia.com/en-us/glossary/multi-agent-systems/ | What are Multi-Agent Systems? | NVIDIA Glossary
+https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/optimization.html | Optimization — NVIDIA Triton Inference Server
+https://docs.nvidia.com/aiqtoolkit/latest/index.html | NVIDIA Agent Intelligence Toolkit Overview — NVIDIA Agent Intelligence Toolkit (1.1.0)
+https://developer.nvidia.com/blog/an-introduction-to-large-language-models-prompt-engineering-and-p-tuning/ | An Introduction to Large Language Models: Prompt Engineering and P-Tuning | NVIDIA Technical Blog
+https://www.youtube.com/watch?v=NaT5Eo97_I0 | Building Multimodal AI RAG with LlamaIndex, NVIDIA NIM, and Milvus | LLM App Development - YouTube
+https://medium.com/@official.indrajit.kar/design-considerations-of-advanced-agentic-ai-for-real-world-applications-c5ef317ba1e1 | Design Considerations of Advanced Agentic AI for Real world Applications | by Indrajit | Medium
+https://learn.microsoft.com/en-us/azure/architecture/best-practices/transient-faults | Transient fault handling - Azure Architecture Center | Microsoft Learn
+https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker | Circuit Breaker Pattern - Azure Architecture Center | Microsoft Learn
+https://learn.microsoft.com/en-us/azure/architecture/patterns/retry | Retry pattern - Azure Architecture Center | Microsoft Learn
+https://www.nvidia.com/en-us/ai/ | AI Agents: Built to Reason, Plan, Act | NVIDIA
+https://docs.nvidia.com/aiqtoolkit/latest/tutorials/index.html | NVIDIA Agent Intelligence Toolkit Tutorials — NVIDIA Agent Intelligence Toolkit (1.1.0)
+https://docs.nvidia.com/aiqtoolkit/latest/resources/faq.html | NVIDIA Agent Intelligence Toolkit FAQ — NVIDIA Agent Intelligence Toolkit (1.1.0)
+https://docs.nvidia.com/nemo/agent-toolkit/1.1/quick-start/launching-ui.html | Launching the NVIDIA Agent Intelligence Toolkit API Server and User Interface — NVIDIA Agent Intelligence Toolkit (1.1)
+https://github.com/NVIDIA/NeMo-Agent-Toolkit | GitHub - NVIDIA/NeMo-Agent-Toolkit: The NVIDIA NeMo Agent toolkit is an open-source library for efficiently connecting and optimizing teams of AI agents.
+https://www.oracle.com/artificial-intelligence/agentic-ai/ | What Is Agentic AI?
+https://www.confluent.io/blog/agentic-ai-the-top-5-challenges-and-how-to-overcome-them/ | Successful Agentic AI: Model Logic, Data Considerations and Manpower
+https://microsoft.github.io/ai-agents-for-beginners/10-ai-agents-production/ | AI Agents in Production: Observability & Evaluation | ai-agents-for-beginners
+https://www.captechconsulting.com/articles/navigating-the-challenges-5-common-pitfalls-in-agentic-ai-adoption | Navigating the Challenges: 5 Common Pitfalls in Agentic AI… | CapTech
+https://github.com/NVIDIA/TensorRT-LLM | GitHub - NVIDIA/TensorRT-LLM: TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.
+https://developer.nvidia.com/blog/measure-and-improve-ai-workload-performance-with-nvidia-dgx-cloud-benchmarking/ | Measure and Improve AI Workload Performance with NVIDIA DGX Cloud Benchmarking | NVIDIA Technical Blog
+https://www.nvidia.com/en-us/glossary/kubernetes/ | What Is Kubernetes and Why Does It Matter? | NVIDIA Glossary
+https://developer.nvidia.com/nsight-systems | Nsight Systems | NVIDIA Developer
+https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/kube-prometheus.html | Setting up Prometheus — NVIDIA GPU Telemetry 1.0.0 documentation
+https://developer.nvidia.com/blog/scaling-llms-with-nvidia-triton-and-nvidia-tensorrt-llm-using-kubernetes/ | Scaling LLMs with NVIDIA Triton and NVIDIA TensorRT-LLM Using Kubernetes | NVIDIA Technical Blog
+https://nvidia.github.io/TensorRT-LLM/performance/perf-analysis.html | Performance Analysis — TensorRT-LLM
+https://www.nvidia.com/en-us/ai-data-science/products/nemo/ | NeMo | Build, monitor, and optimize AI agents | NVIDIA
+https://arxiv.org/abs/2310.10501 | [2310.10501] NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications with Programmable Rails
+https://docs.nvidia.com/nemo/rl/latest/index.html | NeMo RL Documentation — NeMo-RL
+https://developer.nvidia.com/blog/jamba-1-5-llms-leverage-hybrid-architecture-to-deliver-superior-reasoning-and-long-context-handling | Jamba 1.5 LLMs Leverage Hybrid Architecture to Deliver Superior Reasoning and Long Context Handling | NVIDIA Technical Blog
+https://arxiv.org/html/2504.15965v1 | From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs
+https://www.ibm.com/think/topics/ai-agent-memory | What Is AI Agent Memory? | IBM
+https://www.byteplus.com/en/topic/542179?title= | MCP agent memory
+https://arxiv.org/abs/2402.02716 | [2402.02716] Understanding the planning of LLM agents: A survey
+https://towardsdatascience.com/how-to-make-your-llm-more-accurate-with-rag-fine-tuning/ | How to Make Your LLM More Accurate with RAG & Fine-Tuning | Towards Data Science
+https://docs.nvidia.com/deeplearning/tensorrt/latest/performance/best-practices.html | Best Practices — NVIDIA TensorRT
+https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/batcher.html | Batchers — NVIDIA Triton Inference Server
+https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/backend/README.html | Triton Inference Server Backend — NVIDIA Triton Inference Server
+https://developer.nvidia.com/nemo-guardrails?sortBy=developer_learning_library%2Fsort%2Ffeatured_in.nemo_guardrails%3Adesc%2Ctitle%3Aasc | NeMo Guardrails | NVIDIA Developer
+https://github.com/NVIDIA-NeMo/Guardrails | GitHub - NVIDIA-NeMo/Guardrails: NeMo Guardrails is an open-source toolkit for easily adding programmable guardrails to LLM-based conversational systems.
+https://docs.nvidia.com/nemo/megatron-bridge/latest/performance-guide.html | Performance Tuning Guide — Megatron Bridge
+https://docs.nvidia.com/nemo/curator/latest/reference/infrastructure/index.html | Infrastructure References - NeMo-Curator | NVIDIA
+https://developer.nvidia.com/nemo-agent-toolkit | NeMo Agent Toolkit | NVIDIA Developer
+https://docs.nvidia.com/aiqtoolkit/index.html | docs.nvidia.com/aiqtoolkit/index.html
+https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization/ | Mastering LLM Techniques: Inference Optimization | NVIDIA Technical Blog
+https://docs.run.ai/v2.20/Researcher/workloads/inference/nim-inference/ | Deploy Inference Workloads with NVIDIA NIM -
+https://apidog.com/blog/use-nvidia-llama-nemotron-api/ | How to Use the NVIDIA Llama Nemotron API for Advanced AI Agents
+https://dev.to/nodeshiftcloud/how-to-deploy-llama-31-nemotron-70b-instruct-on-a-virtual-machine-in-the-cloud-3777 | How to deploy Llama-3.1-Nemotron-70B-Instruct on a Virtual Machine in the Cloud? - DEV Community
+https://developer.nvidia.com/blog/chat-with-your-enterprise-data-through-open-source-ai-q-nvidia-blueprint/ | Chat With Your Enterprise Data Through Open-Source AI-Q NVIDIA Blueprint | NVIDIA Technical Blog
+https://developer.nvidia.com/blog/improve-ai-code-generation-using-nvidia-nemo-agent-toolkit/ | Improve AI Code Generation Using NVIDIA NeMo Agent Toolkit | NVIDIA Technical Blog
+https://www.ibm.com/think/topics/ai-agent-evaluation | What is AI Agent Evaluation? | IBM
+https://docs.langchain.com/oss/python/integrations/providers/portkey/logging_tracing_portkey | python.langchain.com/docs/integrations/providers/portkey/logging_tracing_portkey/
+https://docs.langchain.com/oss/javascript/integrations/retrievers/time-weighted-retriever | js.langchain.com/docs/integrations/retrievers/time-weighted-retriever/
+https://nvidia.github.io/TensorRT-LLM/reference/troubleshooting.html | Troubleshooting — TensorRT-LLM
+https://docs.langchain.com/oss/python/langchain/overview | python.langchain.com/docs/concepts/tracing/
+https://docs.langchain.com/langsmith/rate-limiting | docs.smith.langchain.com/evaluation/how_to_guides/rate_limiting
+https://developer.nvidia.com/blog/a-guide-to-monitoring-machine-learning-models-in-production | A Guide to Monitoring Machine Learning Models in Production | NVIDIA Technical Blog
+https://towardsdatascience.com/monitoring-machine-learning-models-in-production-how-to-track-data-quality-and-integrity-391435c8a299/ | towardsdatascience.com/monitoring-machine-learning-models-in-production-how-to-track-data-quality-and-integrity-391435c8a299/
+https://developer.nvidia.com/blog/building-safer-llm-apps-with-langchain-templates-and-nvidia-nemo-guardrails/ | Building Safer LLM Apps with LangChain Templates and NVIDIA NeMo Guardrails | NVIDIA Technical Blog
+https://developer.nvidia.com/nemo-guardrails?sortBy=developer_learning_library%2Fsort%2Ffeatured_in.nemo_guardrails%3Adesc%2Ctitle%3Aasc&hitsPerPage=12 | NeMo Guardrails | NVIDIA Developer
+https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-software-medical-device | fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-software-medical-device
+https://standards.ieee.org/initiatives/autonomous-intelligence-systems/ | ethicsinaction.ieee.org/
+https://developer.nvidia.com/blog/securing-generative-ai-deployments-with-nvidia-nim-and-nvidia-nemo-guardrails/ | Securing Generative AI Deployments with NVIDIA NIM and NVIDIA NeMo Guardrails | NVIDIA Technical Blog
+https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/agents/ | Agentic or Tool use - Ragas
+https://www.leewayhertz.com/ai-for-regulatory-compliance/#core-technologies | AI for regulatory compliance: Use cases, technologies, benefits, solution and implementation
+https://medium.com/@adnanmasood/responsible-ai-revisited-critical-changes-and-updates-since-our-2023-playbook-0c1610d57f37 | medium.com/@adnanmasood/responsible-ai-revisited-critical-changes-and-updates-since-our-2023-playbook-0c1610d57f37
+https://www.nvidia.com/en-us/glossary/data-flywheel/ | Data flywheel: What it is and how it works | NVIDIA Glossary
+https://www.holisticai.com/blog/human-in-the-loop-ai#:~:text=Human%2Din%2Dthe%2DLoop,continuous%20feedback%20and%20decision%2Dmaking. | holisticai.com/blog/human-in-the-loop-ai#:~:text=Human%2Din%2Dthe%2DLoop,continuous%20feedback%20and%20decision%2Dmaking.
+https://onereach.ai/blog/human-in-the-loop-agentic-ai-systems/#:~:text=Key%20risks%20of%20unchecked%20AI,Book%20a%20Demo | onereach.ai/blog/human-in-the-loop-agentic-ai-systems/#:~:text=Key%20risks%20of%20unchecked%20AI,Book%20a%20Demo
+https://coralogix.com/ai-blog/understanding-why-ai-guardrails-are-necessary-ensuring-ethical-and-responsible-ai-use/ | What are AI Guardrails: Definition, Types & Ethical Usage
+https://www.codecademy.com/article/chain-of-thought-cot-prompting | Chain of Thought Prompting Explained (with examples) | Codecademy

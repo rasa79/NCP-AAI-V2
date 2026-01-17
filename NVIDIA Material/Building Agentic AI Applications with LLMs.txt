@@ -1,0 +1,47 @@
+Building Agentic AI Applications with LLMs
+
+
+About this Course
+The bar for what AI-powered agents can do has been steadily rising over the past few years, and new innovations allow them to not only engage in conversations but also utilize tools, conduct research, and execute on complex objectives at scale. This course empowers you to develop sophisticated agent systems that can execute on deep thought, research, software calling, and distributed operation. Throughout the course, you'll gain hands-on experience in designing agents that efficiently retrieve and refine information, intelligently route queries, and execute tasks concurrently using orchestration tools like LangGraph and sound software engineering practices. By the end of the course, you will have a solid foundation in agent architectures and will be able to construct interesting agent-like integrations to complement your existing workflows and software stacks.
+Learning Objectives
+
+By participating in this course, you will:
+
+    Understand the strengths and limitations of LLMs, and why agent-based paradigms help us to empower them in our modern software landscape.
+    Learn to produce structured outputs to enable machine-parseable function calls or API integrations.
+    Explore retrieval mechanisms and knowledge graphs for domain knowledge.
+    Experiment with multi-agent orchestration using frameworks like LangGraph.
+
+Topics Covered
+
+We start with basic LLM usage and agent fundamentals, covering structured outputs, retrieval, and knowledge graphs. We then move to multi-agent concurrency, data flywheels, real-time constraints, and scaling considerations—finishing with a final assessment that has you interfacing with a scalable multi-tenant agent API.
+Course Outline
+
+The table below is a suggested timeline for the course, with nine sections. Please coordinate with the instructor for the best pacing and emphasis.
+1. Fundamentals of Agent Abstraction and LLMs 	
+
+    Discuss LLM capabilities & pitfalls
+    Introduce agents as a task decomposition abstraction.
+    Demonstrate minimal agent with free-text LLM calls
+
+2. Structured Output & Basic Fulfillment Mechanisms 	
+
+    Bottlenecking LLMs with JSON/task-based outputs.
+    Ensure domain alignment & stable schema enforcement.
+    Introduction to cognitive architectures.
+
+3. Retrieval Mechanisms & Environmental Tooling 	
+
+    Formalize environment access strategies for agents to interface with other systems.
+    Develop tool interfaces for external data repositories (DBs, APIs)
+    Use vector-based retrieval-augmented generation for semantic retrieval over document sets
+
+4. Multi-Agent Systems & Frameworks 	
+
+    Decompose tasks among specialized agents
+    Formalize communication buffers and process distribution schemes.
+    Differentiate between different frameworks and their unique approaches.
+
+5. Final Assessment 	
+
+    Deploy an agent that can schedule multiple retrieval operations to gather research and return to user.

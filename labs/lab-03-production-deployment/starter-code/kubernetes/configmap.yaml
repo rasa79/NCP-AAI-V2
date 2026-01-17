@@ -1,0 +1,46 @@
+# ConfigMap for RAG Agent Configuration
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rag-agent-config
+data:
+  # Service Configuration
+  SERVICE_NAME: "rag-agent"
+  VERSION: "1.0.0"
+  DEBUG: "false"
+  
+  # API Configuration
+  API_HOST: "0.0.0.0"
+  API_PORT: "8000"
+  
+  # NVIDIA NIM Configuration
+  NIM_ENDPOINT: "http://nim-service:8000"
+  NIM_TIMEOUT: "30"
+  NIM_MAX_RETRIES: "3"
+  
+  # Vector Database Configuration
+  VECTOR_DB_PATH: "/data/vector_db"
+  VECTOR_DB_TYPE: "faiss"
+  
+  # Embedding Model Configuration
+  EMBEDDING_MODEL: "sentence-transformers/all-MiniLM-L6-v2"
+  EMBEDDING_DIMENSION: "384"
+  
+  # RAG Configuration
+  CHUNK_SIZE: "500"
+  CHUNK_OVERLAP: "100"
+  TOP_K: "3"
+  SIMILARITY_THRESHOLD: "0.7"
+  
+  # Performance Configuration
+  MAX_CONCURRENT_REQUESTS: "100"
+  REQUEST_TIMEOUT: "30"
+  
+  # Circuit Breaker Configuration
+  CIRCUIT_BREAKER_THRESHOLD: "5"
+  CIRCUIT_BREAKER_TIMEOUT: "60"
+  
+  # Monitoring Configuration
+  METRICS_ENABLED: "true"
+  LOG_LEVEL: "INFO"
