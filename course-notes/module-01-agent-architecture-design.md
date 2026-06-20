@@ -557,6 +557,92 @@ class Agent:
             self.handle_message(message)
         self.inbox.clear()
 ```
+**Message Passing, second example:**
+```python
+from datetime import datetime
+from enum import Enum, auto
+from typing import Optional
+import uuid
+
+class MessageType(Enum):
+    REQUEST = auto()
+    RESPONSE = auto()
+    INFORM = auto()
+
+class Message:
+    def __init__(self, sender: str, receiver: str, content: str, 
+                 msg_type: MessageType, reply_to: Optional[str] = None):
+        self.id = str(uuid.uuid4())
+        self.sender = sender
+        self.receiver = receiver
+        self.content = content
+        self.type = msg_type
+        self.reply_to = reply_to  # ID of message this responds to
+        self.timestamp = datetime.now()
+    
+    def __repr__(self):
+        return f"Message({self.type.name}: {self.sender} -> {self.receiver})"
+
+class Agent:
+    def __init__(self, name: str):
+        self.name = name
+        self.inbox: list[Message] = []
+        self.outbox: list[Message] = []  # Decouples send from delivery
+    
+    def send_message(self, receiver_name: str, content: str, 
+                     msg_type: MessageType, reply_to: Optional[str] = None):
+        msg = Message(self.name, receiver_name, content, msg_type, reply_to)
+        self.outbox.append(msg)
+        return msg.id  # Return ID so caller can track the conversation
+    
+    def receive_message(self, message: Message):
+        if message.receiver != self.name:
+            raise ValueError(f"Message misdelivered: {message.receiver} != {self.name}")
+        self.inbox.append(message)
+    
+    def process_messages(self, registry: dict[str, 'Agent']):
+        """Process inbox and route outbox through a central registry."""
+        # Handle incoming
+        for msg in self.inbox:
+            self.handle_message(msg)
+        self.inbox.clear()
+        
+        # Deliver outgoing
+        for msg in self.outbox:
+            if msg.receiver in registry:
+                registry[msg.receiver].receive_message(msg)
+            else:
+                print(f"Undeliverable: {msg}")
+        self.outbox.clear()
+    
+    def handle_message(self, message: Message):
+        if message.type == MessageType.REQUEST:
+            response = Message(
+                self.name, message.sender,
+                f"Acknowledged: {message.content}",
+                MessageType.RESPONSE,
+                reply_to=message.id
+            )
+            self.outbox.append(response)
+        elif message.type == MessageType.INFORM:
+            print(f"[{self.name}] Noted: {message.content}")
+        # ... etc
+
+# --- Usage ---
+if __name__ == "__main__":
+    alice = Agent("Alice")
+    bob = Agent("Bob")
+    registry = {"Alice": alice, "Bob": bob}
+    
+    alice.send_message("Bob", "Need status update", MessageType.REQUEST)
+    
+    # Simulate message delivery cycle
+    for agent in registry.values():
+        agent.process_messages(registry)
+    
+    # Bob's response is now in Alice's inbox
+    alice.process_messages(registry)
+```
 
 **Shared State:**
 ```python
