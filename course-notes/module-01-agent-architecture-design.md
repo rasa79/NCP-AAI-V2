@@ -669,6 +669,157 @@ def agent_1(state: SharedState) -> SharedState:
     state["research_results"] = results
     return state
 ```
+**Shared state, enhance to first example above:**
+- Immutability (Pure Functions): Agents do not mutate, they return a dictionary containing only the changes.
+LangGraph uses this return value to update state under the hood.
+- List State Reducers (Annotated): We added Annotated[List[str], operator.add] to research_results. 
+Without this, if multiple agents try to write to research_results, the final agent's write would overwrite everything previous. 
+Using operator.add makes LangGraph append items safely.
+- Partial Returns: The agents return partial state objects (e.g., just {"analysis": ...}), 
+keeping agents loosely coupled and ensuring they do not overwrite other fields unintentionally.
+- Ready-to-run Architecture: Included mock functions and a __main__ section so you can 
+copy, run, and experiment with the state propagation immediately.
+
+```python
+import operator
+from typing import Annotated, Any, Dict, List, TypedDict
+from langgraph.graph import START, END, StateGraph
+
+
+# =====================================================================
+# Best Practice 1: Define a robust, type-safe Shared State
+# =====================================================================
+class SharedState(TypedDict):
+    """The unified state schema shared among all agents in our graph."""
+
+    user_query: str
+
+    # Industry standard: Use 'Annotated' with 'operator.add' for lists.
+    # This acts as a "reducer". When an agent returns a list of results,
+    # LangGraph will automatically APPEND them to the existing list,
+    # rather than overwriting previous agents' discoveries.
+    research_results: Annotated[List[str], operator.add]
+
+    # For standard string updates where we want the last agent's write to win,
+    # we don't need a custom reducer; LangGraph's default behavior is to overwrite.
+    analysis: str
+    final_output: str
+    metadata: Dict[str, Any]
+
+
+# =====================================================================
+# Mock helper functions (simulating external APIs/LLMs)
+# =====================================================================
+def perform_research(query: str) -> List[str]:
+    """Mock helper to simulate API or web search retrieval."""
+    return [
+        f"Document A: Best practices for state management in LangGraph ({query})",
+        f"Document B: Multi-agent design patterns overview for ({query})",
+    ]
+
+
+# =====================================================================
+# Best Practice 2: Functional Updates & Partial State Returns
+# =====================================================================
+
+
+def research_agent(state: SharedState) -> Dict[str, Any]:
+    """Agent 1: Reads user query, fetches research material, and updates state.
+
+    Notice that we do NOT mutate `state` in place, and we only return the keys
+    we want to change or append to.
+    """
+    # Safe retrieval using .get()
+    query = state.get("user_query", "")
+
+    print(f"\n[Agent 1 - Research] Processing query: '{query}'")
+    results = perform_research(query)
+
+    # Return ONLY the slice of the state we updated.
+    # Because 'research_results' is annotated with operator.add, these will
+    # be appended to any pre-existing results in the state.
+    return {"research_results": results}
+
+
+def analysis_agent(state: SharedState) -> Dict[str, Any]:
+    """Agent 2: Reads research results from shared state, generates analysis.
+
+    This node demonstrates state sharing by leveraging the output of Agent 1.
+    """
+    # Access accumulated state from previous agents
+    results = state.get("research_results", [])
+
+    print(f"[Agent 2 - Analysis] Reading {len(results)} shared research documents...")
+
+    # Summarize/Analyze
+    analysis_summary = (
+        f"Synthesized Analysis:\n"
+        f"Our agents discovered {len(results)} source items. "
+        f"Key takeaway: {results[0] if results else 'No data found.'}"
+    )
+
+    # Return only the new analysis field
+    return {"analysis": analysis_summary}
+
+
+def writer_agent(state: SharedState) -> Dict[str, Any]:
+    """Agent 3: Reads analysis, formats the final presentation output."""
+    query = state.get("user_query", "")
+    analysis = state.get("analysis", "")
+
+    print("[Agent 3 - Writer] Preparing final draft...")
+
+    final_report = (
+        f"================ REPORT ================\n"
+        f"Topic: {query}\n"
+        f"----------------------------------------\n"
+        f"{analysis}\n"
+        f"========================================"
+    )
+
+    return {"final_output": final_report}
+
+
+# =====================================================================
+# Best Practice 3: Graph Construction
+# =====================================================================
+def build_and_run_graph():
+    # 1. Initialize StateGraph with our SharedState schema
+    workflow = StateGraph(SharedState)
+
+    # 2. Add nodes (agents)
+    workflow.add_node("researcher", research_agent)
+    workflow.add_node("analyzer", analysis_agent)
+    workflow.add_node("writer", writer_agent)
+
+    # 3. Establish the execution flow
+    workflow.add_edge(START, "researcher")
+    workflow.add_edge("researcher", "analyzer")
+    workflow.add_edge("analyzer", "writer")
+    workflow.add_edge("writer", END)
+
+    # 4. Compile workflow into a runnable app
+    compiled_graph = workflow.compile()
+
+    # 5. Execute with an initial state
+    initial_input = {
+        "user_query": "Agentic Workflows",
+        "research_results": [],  # Initial empty accumulator
+        "analysis": "",
+        "final_output": "",
+        "metadata": {},
+    }
+
+    print("Executing Multi-Agent Workflow...")
+    output_state = compiled_graph.invoke(initial_input)
+
+    print("\n--- Execution Complete ---")
+    print(output_state["final_output"])
+
+
+if __name__ == "__main__":
+    build_and_run_graph()
+```
 
 > 📝 **EXAM TIP**
 > 
